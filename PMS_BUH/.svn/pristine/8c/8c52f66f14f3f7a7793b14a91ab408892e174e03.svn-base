@@ -1,0 +1,115 @@
+﻿using DevExpress.Common.Grid;
+using DevExpress.Utils;
+using DevExpress.XtraEditors;
+using PMS.Comon;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using PMS.Services;
+using PMS.Entities;
+using System.Windows.Forms;
+
+namespace PMS.UI.Forms.NghiepVu
+{
+    public partial class FrmIm_Ex_port_GiangVienHoatDongNgoaiGiangDay : Form
+    {
+        #region Variable
+        DataTable dt = new DataTable();
+        private DataParameter _inputParameter;
+        int output = -1;
+        #endregion
+
+        public struct DataParameter
+        {
+            public string NamHoc;
+            public string HocKy;           
+        }
+        public FrmIm_Ex_port_GiangVienHoatDongNgoaiGiangDay(string strNamHoc,string strHocKy,ref int _outPut)
+        {
+            InitializeComponent();
+            _inputParameter.NamHoc = strNamHoc;
+            _inputParameter.HocKy = strHocKy;
+            _outPut = output;
+        }
+
+        private void btn_ChonFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog { Filter = PMS.Common.ThongBao.Str_ExcelWorkbook, Multiselect = false, ValidateNames = true };
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                Cursor.Current = Cursors.WaitCursor;
+                btn_ChonFile.Text = dialog.FileName;   
+                using (WaitDialogForm wait = new WaitDialogForm(PMS.Common.ThongBao.Str_LoadData))
+                {
+                    try
+                    {
+                        dt = ExcelImport.ReadFromExcel(btn_ChonFile.Text);                        
+                    }
+                    catch
+                    {
+                        PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_LoiImport,MessageBoxIcon.Error, true);
+                        btn_ChonFile.Text = string.Empty;
+                    }
+                    finally
+                    {
+                        if (dt.Rows.Count > 0)
+                        {
+                            bds_ImExGVHDNGD.DataSource = dt;
+                            grv_IMEXGVHDNGD.OptionsView.RowAutoHeight = true;
+                            wait.Close();
+                            PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ImportThanhCong, MessageBoxIcon.None, true);
+
+                        }
+                    }
+                }
+
+                Cursor.Current = Cursors.Default;
+            }
+
+        }
+
+        private void FrmIm_Ex_port_GiangVienHoatDongNgoaiGiangDay_Load(object sender, EventArgs e)
+        {
+            #region InitGridView
+            AppGridView.InitGridView(grv_IMEXGVHDNGD, true, true, DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect, false, false);
+            AppGridView.ShowField(grv_IMEXGVHDNGD, new string[] { "Stt", "TenMonHoc", "MaLopHocPhan", "SiSo", "MaGiangVien" },
+                new string[] { "STT", "Tên môn học", "Mã lớp học phần", "Sỉ số",  "Mã giảng viên" }
+                , new int[] { 60, 130, 180, 80, 100 });
+            AppGridView.AlignHeader(grv_IMEXGVHDNGD, new string[] { "Stt", "TenMonHoc", "MaLopHocPhan", "SiSo", "MaGiangVien" }, DevExpress.Utils.HorzAlignment.Center);
+            AppGridView.ReadOnlyColumn(grv_IMEXGVHDNGD);
+            #endregion
+        }
+
+        private void btn_Import_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            string strXML = "<Root></Root>";
+            strXML = PMS.Common.Globals.GetXMLFromTable(dt, _inputParameter.NamHoc, _inputParameter.HocKy);
+            if (strXML == "<Root></Root>")
+            {
+                PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_KiemTraFileExcel, MessageBoxIcon.Warning, true);
+                return;
+            }
+            else
+            {
+                
+                DataServices.GiangVienHoatDongNgoaiGiangDay.LuuImportExcel(strXML, ref output);
+                if(output==0)
+                {
+                    PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_LuuImportThanhCong, MessageBoxIcon.None, true);
+                }
+                else
+                {
+                    PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_LuuImportThatBai, MessageBoxIcon.Warning, true);
+
+                }
+            }
+            this.Close();
+            Cursor.Current = Cursors.Default;
+        }
+    }
+}
