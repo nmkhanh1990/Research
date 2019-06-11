@@ -2798,6 +2798,16 @@ namespace PMS.UI.Forms.BaoCao
             printControl.PrintingSystem = report.PrintingSystem;
             report.CreateDocument();
         }
+        public void InThongKeChiTietGioGiangThinhGiangBUH(DataSet dsData, DataTable dt, DateTime date)
+        {
+            Text = "Chi tiết khối lượng giảng dạy của giảng viên thỉnh giảng";
+            rptBangKeVuotGioGiang_ThinhGiang report = new rptBangKeVuotGioGiang_ThinhGiang();
+            XReport = report;
+            OpenLayout(report);
+            report.InitData(dsData, dt, date);
+            printControl.PrintingSystem = report.PrintingSystem;
+            report.CreateDocument();
+        }
         #endregion
 
         #region Bang ke  TỔNG HỢP PHÂN CÔNG  BUH

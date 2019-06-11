@@ -308,7 +308,7 @@ namespace PMS.UI.Modules.Reports
             
             dtData.Load(idr);
             dtData.Columns["ChonIn"].ReadOnly = false;
-            dtData.Columns["ThueTNCN"].ReadOnly = false;
+            dtData.Columns["ThueTncn"].ReadOnly = false;
             dtData.Columns["XacNhanChiTra"].ReadOnly = false;
             bindingSourceThongKe.DataSource = dtData;
         }

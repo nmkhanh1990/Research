@@ -219,6 +219,7 @@ namespace PMS.UI.Modules.Reports
             if (_maTruong == "BUH")
                 GetAllTrangThaiGiangVien();
         }
+
         #region InitData()
         void InitData()
         {
@@ -404,7 +405,9 @@ namespace PMS.UI.Modules.Reports
                     tblNoiDungGiamTru.Load(readerGiamTru);
 
                     DataTable tblKetQua = new DataTable("NoiDung");
-                    IDataReader readerKQ = DataServices.KetQuaThanhToanThuLao.BangKeVuotGioGiangBuh(xmlData, cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString(), int.Parse(cboLanChot.EditValue.ToString()));
+                    IDataReader readerKQ = DataServices.KetQuaThanhToanThuLao.BangKeVuotGioGiangBuh(
+                        xmlData, cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString(), int.Parse(cboLanChot.EditValue.ToString())
+                    );
                     tblKetQua.Load(readerKQ);
                     DataSet dsData = new DataSet();
                     dsData.Tables.Add(tblNoiDungGiamTru);
@@ -418,7 +421,13 @@ namespace PMS.UI.Modules.Reports
                         return;
                     }
 
-                    frm.InThongKeChiTietGioGiangBUH(dsData, vListBaoCao, _ngayIn);
+                    string loaiGV = cboLoaiGiangVien.Text.ToLower();
+                    if(cboLoaiGiangVien.EditValue.ToString() == "4") {
+                        frm.InThongKeChiTietGioGiangThinhGiangBUH(dsData, vListBaoCao, _ngayIn);
+                    } else {
+                        frm.InThongKeChiTietGioGiangBUH(dsData, vListBaoCao, _ngayIn);
+                    }
+                    
                     frm.ShowDialog();
                 }
             }

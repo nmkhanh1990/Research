@@ -55,3 +55,17 @@ D:\Share\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.pdb
 D:\Share\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csprojAssemblyReference.cache
 D:\Share\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CoreCompileInputs.cache
 D:\Share\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CopyComplete
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\PMS.Entities.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\PMS.Entities.pdb
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\PMS.Entities.xml
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CoreCompileInputs.cache
+C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CopyComplete
+C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.dll
+C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.pdb
