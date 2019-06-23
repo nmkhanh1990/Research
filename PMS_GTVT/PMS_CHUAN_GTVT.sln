@@ -1,0 +1,48 @@
+﻿Microsoft Visual Studio Solution File, Format Version 13.00
+# Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS_CHUAN_GTVT.Entities", "PMS_CHUAN_GTVT.Entities\PMS_CHUAN_GTVT.Entities.csproj", "{358B4811-374E-4924-B5AC-D93CB3481DBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS_CHUAN_GTVT.Data", "PMS_CHUAN_GTVT.Data\PMS_CHUAN_GTVT.Data.csproj", "{0A962706-B00A-48D9-B62F-2068ABE04776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS_CHUAN_GTVT.Data.SqlClient", "PMS_CHUAN_GTVT.Data.SqlClient\PMS_CHUAN_GTVT.Data.SqlClient.csproj", "{358DCACC-0128-4EA4-9793-C7CF4D9F2282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS_CHUAN_GTVT.Services", "PMS_CHUAN_GTVT.Services\PMS_CHUAN_GTVT.Services.csproj", "{ED866E41-F1D8-4434-8F4E-8758E22C1513}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetTiers", "NetTiers", "{F3A10C8D-3227-449F-A2CB-014DE2D7F415}"
+	ProjectSection(SolutionItems) = preProject
+		AssemblyInfo.cs = AssemblyInfo.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{358B4811-374E-4924-B5AC-D93CB3481DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358B4811-374E-4924-B5AC-D93CB3481DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358B4811-374E-4924-B5AC-D93CB3481DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358B4811-374E-4924-B5AC-D93CB3481DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A962706-B00A-48D9-B62F-2068ABE04776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A962706-B00A-48D9-B62F-2068ABE04776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A962706-B00A-48D9-B62F-2068ABE04776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A962706-B00A-48D9-B62F-2068ABE04776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358DCACC-0128-4EA4-9793-C7CF4D9F2282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358DCACC-0128-4EA4-9793-C7CF4D9F2282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358DCACC-0128-4EA4-9793-C7CF4D9F2282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358DCACC-0128-4EA4-9793-C7CF4D9F2282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED866E41-F1D8-4434-8F4E-8758E22C1513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED866E41-F1D8-4434-8F4E-8758E22C1513}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED866E41-F1D8-4434-8F4E-8758E22C1513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED866E41-F1D8-4434-8F4E-8758E22C1513}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{358B4811-374E-4924-B5AC-D93CB3481DBD} = {F3A10C8D-3227-449F-A2CB-014DE2D7F415}
+		{0A962706-B00A-48D9-B62F-2068ABE04776} = {F3A10C8D-3227-449F-A2CB-014DE2D7F415}
+		{358DCACC-0128-4EA4-9793-C7CF4D9F2282} = {F3A10C8D-3227-449F-A2CB-014DE2D7F415}
+		{ED866E41-F1D8-4434-8F4E-8758E22C1513} = {F3A10C8D-3227-449F-A2CB-014DE2D7F415}
+	EndGlobalSection
+EndGlobal

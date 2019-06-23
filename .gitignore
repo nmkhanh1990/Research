@@ -1,0 +1,5 @@
+*.svn-base
+/PMS_GTVT/.svn
+/PMS_GTVT/.vs
+obj
+bin
