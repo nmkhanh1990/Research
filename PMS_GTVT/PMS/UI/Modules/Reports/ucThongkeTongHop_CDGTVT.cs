@@ -1,18 +1,16 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
+﻿using DevExpress.Common.Grid;
 using DevExpress.XtraEditors;
-using DevExpress.Common.Grid;
 using DevExpress.XtraEditors.Controls;
+using PMS.BLL;
 using PMS.Entities;
 using PMS.Services;
-using PMS.UI.Forms.NghiepVu.FormXuLy;
 using PMS.UI.Forms.BaoCao;
-using PMS.BLL;
+using PMS.UI.Forms.NghiepVu.FormXuLy;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PMS.UI.Modules.Reports
 {
@@ -36,20 +34,38 @@ namespace PMS.UI.Modules.Reports
         private void ucThongkeTongHop_CDGTVT_Load(object sender, EventArgs e)
         {
             AppGridView.InitGridView(gridViewThongKe, true, true, DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect, true, true);
-            AppGridView.ShowField(gridViewThongKe, new string[] { "Stt", "MaQuanLy", "HoTen", "TenBoMon", "TongGioDay1", "GioKhac1", "SoGioGiamKhac1", "DinhMucGioChuan1", "GioVuot1"
-                , "TongGioDay2", "GioKhac2", "SoGioGiamKhac2", "DinhMucGioChuan2", "GioVuot2", "TongGioDay", "GioKhac", "SoGioGiamKhac", "DinhMucGioChuan", "GioVuot", "GhiChu" }
-                    , new string[] { "STT", "Mã giảng viên", "Họ tên", "Tên Bộ Môn", "Tổng giờ dạy HK01", "Giờ thực hiện các nhiệm vụ khác HK01", "Giảm trừ giờ chuẩn các HĐ khác HK01", "Định mức giờ tiêu chuẩn HK01", "Giờ vượt HK01"
-                , "Tổng giờ dạy HK02", "Giờ thực hiện các nhiệm vụ khác HK02", "Giảm trừ giờ chuẩn các HĐ khác HK02", "Định mức giờ tiêu chuẩn HK02", "Giờ vượt HK02", "Tổng giờ dạy cả năm", "Giờ thực hiện các nhiệm vụ khác cả năm", "Giảm trừ giờ chuẩn các HĐ khác cả năm", "Định mức giờ tiêu chuẩn cả năm", "Giờ vượt cả năm", "Ghi chú" }
-                    , new int[] { 60, 90, 170, 150, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 150 });
+            AppGridView.ShowField(gridViewThongKe
+                , new string[] { "Stt", "MaQuanLy", "HoTen", "TenBoMon"
+                    , "TongGioDay1", "GioKhac1", "SoGioGiamKhac1", "DinhMucGioChuan1", "GioVuot1"
+                    , "TongGioDay2", "GioKhac2", "SoGioGiamKhac2", "DinhMucGioChuan2", "GioVuot2"
+                    , "TongGioDay3", "GioKhac3", "DinhMucGioChuan3", "DinhMucGioChuan3", "GioVuot3"
+                    , "TongGioDay", "GioKhac", "SoGioGiamKhac", "DinhMucGioChuan", "GioVuot", "GhiChu" }
+                , new string[] { "STT", "Mã giảng viên", "Họ tên", "Tên Bộ Môn"
+                    , "Tổng giờ dạy HK01", "Giờ thực hiện các nhiệm vụ khác HK01", "Giảm trừ giờ chuẩn các HĐ khác HK01", "Định mức giờ tiêu chuẩn HK01", "Giờ vượt HK01"
+                    , "Tổng giờ dạy HK02", "Giờ thực hiện các nhiệm vụ khác HK02", "Giảm trừ giờ chuẩn các HĐ khác HK02", "Định mức giờ tiêu chuẩn HK02", "Giờ vượt HK02"
+                    , "Tổng giờ dạy HK03", "Giờ thực hiện các nhiệm vụ khác HK03", "Giảm trừ giờ chuẩn các HĐ khác HK03", "Định mức giờ tiêu chuẩn HK03", "Giờ vượt HK03"
+                    , "Tổng giờ dạy cả năm", "Giờ thực hiện các nhiệm vụ khác cả năm", "Giảm trừ giờ chuẩn các HĐ khác cả năm", "Định mức giờ tiêu chuẩn cả năm", "Giờ vượt cả năm", "Ghi chú" }
+                , new int[] { 60, 90, 170, 150
+                    , 80, 80, 80, 80, 80
+                    , 80, 80, 80, 80, 80
+                    , 80, 80, 80, 80, 80
+                    , 80, 80, 80, 80, 80, 150 });
             AppGridView.HideField (gridViewThongKe, new string[] { "GioKhac1", "SoGioGiamKhac1", "GioKhac2", "SoGioGiamKhac2", "GioKhac", "SoGioGiamKhac" });
             AppGridView.ReadOnlyColumn(gridViewThongKe);
             AppGridView.AlignHeader(gridViewThongKe, new string[] { "Stt", "MaQuanLy", "HoTen", "TenBoMon", "TongGioDay1", "GioKhac1", "SoGioGiamKhac1", "DinhMucGioChuan1", "GioVuot1", "TongGioDay2", "GioKhac2", "SoGioGiamKhac2", "DinhMucGioChuan2", "GioVuot2", "TongGioDay", "GioKhac", "SoGioGiamKhac", "DinhMucGioChuan", "GioVuot", "GhiChu" }, DevExpress.Utils.HorzAlignment.Center);
-            AppGridView.AlignField(gridViewThongKe, new string[] { "Stt", "MaQuanLy", "HoTen", "TenBoMon", "TongGioDay1", "GioKhac1", "SoGioGiamKhac1", "DinhMucGioChuan1", "GioVuot1", "TongGioDay2", "GioKhac2", "SoGioGiamKhac2", "DinhMucGioChuan2", "GioVuot2", "TongGioDay", "GioKhac", "SoGioGiamKhac", "DinhMucGioChuan", "GioVuot", "GhiChu" }, DevExpress.Utils.HorzAlignment.Center);
+            AppGridView.AlignField(gridViewThongKe
+                , new string[] { "Stt", "MaQuanLy", "HoTen", "TenBoMon"
+                    , "TongGioDay1", "GioKhac1", "SoGioGiamKhac1", "DinhMucGioChuan1", "GioVuot1"
+                    , "TongGioDay2", "GioKhac2", "SoGioGiamKhac2", "DinhMucGioChuan2", "GioVuot2"
+                    , "TongGioDay3", "GioKhac3", "DinhMucGioChuan3", "DinhMucGioChuan3", "GioVuot3"
+                    , "TongGioDay", "GioKhac", "SoGioGiamKhac", "DinhMucGioChuan", "GioVuot", "GhiChu" }
+                , DevExpress.Utils.HorzAlignment.Center);
             gridViewThongKe.Columns["TenBoMon"].GroupIndex = 0;
             Common.Globals.WordWrapHeader(gridViewThongKe, 50);
 
             gridViewThongKe.Columns["GioVuot1"].AppearanceCell.Font = new Font(gridViewThongKe.Columns[4].AppearanceCell.Font.FontFamily, gridViewThongKe.Columns[4].AppearanceCell.Font.Size, FontStyle.Bold);
             gridViewThongKe.Columns["GioVuot2"].AppearanceCell.Font = new Font(gridViewThongKe.Columns[4].AppearanceCell.Font.FontFamily, gridViewThongKe.Columns[4].AppearanceCell.Font.Size, FontStyle.Bold);
+            gridViewThongKe.Columns["GioVuot3"].AppearanceCell.Font = new Font(gridViewThongKe.Columns[4].AppearanceCell.Font.FontFamily, gridViewThongKe.Columns[4].AppearanceCell.Font.Size, FontStyle.Bold);
             gridViewThongKe.Columns["GioVuot"].AppearanceCell.Font = new Font(gridViewThongKe.Columns[4].AppearanceCell.Font.FontFamily, gridViewThongKe.Columns[4].AppearanceCell.Font.Size, FontStyle.Bold);
 
             #region Nam hoc

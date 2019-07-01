@@ -1,18 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
+﻿using DevExpress.Common.Grid;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using PMS.BLL;
 using PMS.Entities;
 using PMS.Services;
-using PMS.BLL;
-using DevExpress.Common.Grid;
-using DevExpress.XtraEditors.Controls;
-using PMS.UI.Forms.NghiepVu.FormXuLy;
 using PMS.UI.Forms.BaoCao;
+using PMS.UI.Forms.NghiepVu.FormXuLy;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace PMS.UI.Modules.Reports
 {
@@ -26,6 +24,7 @@ namespace PMS.UI.Modules.Reports
         private string groupname = UserInfo.GroupName;
         private bool user = false;
         #endregion
+
         public ucThongKeDuTruCaNamTruocThoiKhoaBieu()
         {
             InitializeComponent();
@@ -34,11 +33,21 @@ namespace PMS.UI.Modules.Reports
         private void ucThongKeDuTruCaNamTruocThoiKhoaBieu_Load(object sender, EventArgs e)
         {
             #region Init GridView
-            string[] arrShowFields = { "Stt", "MaQuanLy", "HoTen", "TenDonVi", "GioGiangHk01", "SoTietNghiaVuHk01", "GioVuotHk01"
-                    , "GioGiangHk02", "SoTietNghiaVuHk02", "GioVuotHk02", "GioGiangCaNam", "SoTietNghiaVuCaNam", "GioVuotCaNam", "TenChucVu" };
-            string[] arrShowFieldNames = { "STT", "Mã giảng viên", "Họ tên", "Tên Bộ Môn", "Tổng giờ dạy HK01", "Định mức giờ chuẩn HK01", "Giờ vượt HK01"
-                    , "Tổng giờ dạy HK02", "Định mức giờ chuẩn HK02", "Giờ vượt HK02", "Tổng giờ dạy cả năm", "Định mức giờ tiêu chuẩn cả năm", "Giờ vượt cả năm", "Ghi chú" };
-            int[] arrShowFieldWidths = { 60, 90, 170, 150, 80, 80, 80, 80, 80, 80, 80, 80, 80, 150 };
+            string[] arrShowFields = { "Stt", "MaQuanLy", "HoTen", "TenDonVi"
+                    , "GioGiangHk01", "SoTietNghiaVuHk01", "GioVuotHk01"
+                    , "GioGiangHk02", "SoTietNghiaVuHk02", "GioVuotHk02"
+                    , "GioGiangHK03", "SoTietNghiaVuHk03", "GioVuotHk03"
+                    , "GioGiangCaNam", "SoTietNghiaVuCaNam", "GioVuotCaNam", "TenChucVu" };
+            string[] arrShowFieldNames = { "STT", "Mã giảng viên", "Họ tên", "Tên Bộ Môn"
+                    , "Tổng giờ dạy HK01", "Định mức giờ chuẩn HK01", "Giờ vượt HK01"
+                    , "Tổng giờ dạy HK02", "Định mức giờ chuẩn HK02", "Giờ vượt HK02"
+                    , "Tổng giờ dạy HK03", "Định mức giờ chuẩn HK03", "Giờ vượt HK03"
+                    , "Tổng giờ dạy cả năm", "Định mức giờ tiêu chuẩn cả năm", "Giờ vượt cả năm", "Ghi chú" };
+            int[] arrShowFieldWidths = { 60, 90, 170, 150
+                    , 80, 80, 80
+                    , 80, 80, 80
+                    , 80, 80, 80
+                    , 80, 80, 80, 150 };
             AppGridView.InitGridView(gridViewThongKe, true, true, DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.RowSelect, true, true);
             AppGridView.ShowField(gridViewThongKe, arrShowFields, arrShowFieldNames, arrShowFieldWidths);
             AppGridView.ReadOnlyColumn(gridViewThongKe);

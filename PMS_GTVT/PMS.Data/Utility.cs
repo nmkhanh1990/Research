@@ -59,6 +59,7 @@ namespace PMS.Data
 	public sealed class Utility
 	{
         public static string userID = "";
+
 		#region Fields
 		//PSB 2006-05-26: should we use EntLib ExceptionPolicy.HandleException?
 		//private const string exceptionPolicy = "PMS.Data Exception Policy";
@@ -531,6 +532,7 @@ namespace PMS.Data
 		}
 		#endregion
 		#endregion
+
         #region SaveLogPMS
         static void SaveLogPMS(DbCommand dbCommand, string connectionString)
         {

@@ -88,9 +88,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CipherLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\PMS\bin\Debug\CipherLib.dll</HintPath>
+    <Reference Include="CipherLib">
+      <HintPath>..\..\PMS_BUH\CipherLib.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
