@@ -69,3 +69,4 @@ C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CoreCompileIn
 C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csproj.CopyComplete
 C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.dll
 C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.pdb
+C:\Run\Research\PMS_BUH\PMS.Entities\obj\Debug\PMS.Entities.csprojAssemblyReference.cache

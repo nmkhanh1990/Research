@@ -332,8 +332,8 @@ namespace PMS.UI.Forms.NghiepVu
                                                                         , "HeSoLopDong", "HeSoNgonNgu", "HeSoQuyDoiThucHanhSangLyThuyet", "TietThucDay", "TietQuyDoi"  });
             AppGridView.HideField(gridViewKhoiLuongQuyDoi, new string[] { "MaLopHocPhan" });
             layoutControlItemChonTatCa.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            //layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            //layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             AppGridView.FixedField(gridViewKhoiLuongQuyDoi, new string[] { "Chon", "MaGiangVien", "Ho", "Ten" }, DevExpress.XtraGrid.Columns.FixedStyle.Left);
             AppGridView.HideField(gridViewKhoiLuongQuyDoi, new string[] { "MaHocHam", "MaHocVi", "MaLoaiGiangVien", "MaCoSo" });
         }
@@ -481,12 +481,12 @@ namespace PMS.UI.Forms.NghiepVu
         void InitGridDLU()
         {
             //Cho hiển thị cbo đợt
-            layoutControlItem8.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            //layoutControl_.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            //layoutControlItem9.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             layoutControlItem10.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
 
             //Ẩn nút lọc và ds gv đi
-            layoutControlIcboGiangVien.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            //layoutControlItem.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             //layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
             AppGridView.InitGridView(gridViewKhoiLuongQuyDoi, true, true, DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CellSelect, false, false);
@@ -556,10 +556,6 @@ namespace PMS.UI.Forms.NghiepVu
         #region Giang Vien
         private void LoadGiangVien()
         {
-            cboGiangVien.Properties.SelectAllItemCaption = "Tất cả";
-            cboGiangVien.Properties.TextEditStyle = TextEditStyles.Standard;
-            cboGiangVien.Properties.Items.Clear();
-
             VList<ViewGiangVien> vListGiangVien = DataServices.ViewGiangVien.GetAll();
             vListGiangVien.Sort("MaQuanLy");
             List<CheckedListBoxItem> listGV = new List<CheckedListBoxItem>();
@@ -569,9 +565,6 @@ namespace PMS.UI.Forms.NghiepVu
                     , String.Format("{0} - {1}", vListGiangVien[i].MaQuanLy, vListGiangVien[i].HoTen)
                     , CheckState.Unchecked, true));
             }
-            cboGiangVien.Properties.Items.AddRange(listGV.ToArray());
-            cboGiangVien.Properties.SeparatorChar = ';';
-            cboGiangVien.CheckAll();
         }
         #endregion
 
@@ -648,35 +641,17 @@ namespace PMS.UI.Forms.NghiepVu
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                if (strMaTruong != "HBU")
+                if (cboNamHoc.EditValue.ToString() == "" || cbocheckHocKy.EditValue.ToString() == "")
                 {
-                    if (cboGiangVien.EditValue.ToString() == "")
-                    {
-                        PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChonGiangVien, MessageBoxIcon.Warning, true);
-                        cboGiangVien.Focus();
-                        return;
-                    }
-                    if (cboNamHoc.EditValue.ToString() == "" || cboHocKy.EditValue.ToString() == "")
-                    {
-                        PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChekNamHocHocKy, MessageBoxIcon.Warning, true);
-                        cboNamHoc.Focus();
-                        return;
-                    }
+                    PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChekNamHocHocKy, MessageBoxIcon.Warning, true);
+                    cbocheckHocKy.Focus();
+                    return;
                 }
-                else
+                if (cboDonVi.EditValue.ToString() == string.Empty)
                 {
-                    if (cboNamHoc.EditValue.ToString() == "" || cbocheckHocKy.EditValue.ToString() == "")
-                    {
-                        PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChekNamHocHocKy, MessageBoxIcon.Warning, true);
-                        cbocheckHocKy.Focus();
-                        return;
-                    }
-                    if (cboDonVi.EditValue.ToString() == string.Empty)
-                    {
-                        PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChonKhoa, MessageBoxIcon.Warning, true);
-                        cboDonVi.Focus();
-                        return;
-                    }
+                    PMS.Common.XuLyGiaoDien.ThongBao(PMS.Common.ThongBao.Str_ThongBao, PMS.Common.ThongBao.Str_ChonKhoa, MessageBoxIcon.Warning, true);
+                    cboDonVi.Focus();
+                    return;
                 }
                 string strLst = string.Empty, strHocKy = string.Empty;
                 ListCombox(_maTruong, ref strLst, ref strHocKy);
@@ -1002,30 +977,9 @@ namespace PMS.UI.Forms.NghiepVu
                     bindingSourceHocKy.DataSource = DataServices.ViewHocKy.GetByNamHoc(cboNamHoc.EditValue.ToString());
                 }
 
-                if (_maTruong == "IUH")
+                if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
                 {
-                    if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
-                    {
-                        ThoiGianGiangDay _tg = DataServices.ThoiGianGiangDay.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
-                        if (_tg != null)
-                        {
-                            dateEditTuNgay.EditValue = _tg.NgayBatDau;
-                            dateEditDenNgay.EditValue = _tg.NgayKetThuc;
-                        }
-                        else
-                        {
-                            XtraMessageBox.Show(string.Format("Năm học {0} - {1} chưa được định nghĩa ngày bắt đầu và kết thúc.", cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString()), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            dateEditTuNgay.EditValue = null;
-                            dateEditDenNgay.EditValue = null;
-                        }
-                    }
-                }
-                else
-                {
-                    if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
-                    {
-                        bindingSourceDot.DataSource = DataServices.CauHinhChotGio.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
-                    }
+                    bindingSourceDot.DataSource = DataServices.CauHinhChotGio.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
                 }
 
                 if (_thanhToanTheoDot)
@@ -1043,32 +997,10 @@ namespace PMS.UI.Forms.NghiepVu
         {
             try
             {
-                if (_maTruong == "IUH")
+                if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
                 {
-                    if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
-                    {
-                        ThoiGianGiangDay _tg = DataServices.ThoiGianGiangDay.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
-                        if (_tg != null)
-                        {
-                            dateEditTuNgay.EditValue = _tg.NgayBatDau;
-                            dateEditDenNgay.EditValue = _tg.NgayKetThuc;
-                        }
-                        else
-                        {
-                            XtraMessageBox.Show(string.Format("Năm học {0} - {1} chưa được định nghĩa ngày bắt đầu và kết thúc.", cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString()), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            dateEditTuNgay.EditValue = null;
-                            dateEditDenNgay.EditValue = null;
-                        }
-                    }
+                    bindingSourceDot.DataSource = DataServices.CauHinhChotGio.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
                 }
-                else
-                {
-                    if (cboNamHoc.EditValue != null && cboHocKy.EditValue != null)
-                    {
-                        bindingSourceDot.DataSource = DataServices.CauHinhChotGio.GetByNamHocHocKy(cboNamHoc.EditValue.ToString(), cboHocKy.EditValue.ToString());
-                    }
-                }
-
 
                 if (_thanhToanTheoDot)
                 {
@@ -1087,9 +1019,6 @@ namespace PMS.UI.Forms.NghiepVu
             try
             {
                 CauHinhChotGio objCauHinh = cboDotThanhToan.GetSelectedDataRow() as CauHinhChotGio;
-
-                dateEditTuNgay.EditValue = objCauHinh.TuNgay;
-                dateEditDenNgay.EditValue = objCauHinh.DenNgay;
 
                 if (_thanhToanTheoDot)
                 {
@@ -1120,16 +1049,8 @@ namespace PMS.UI.Forms.NghiepVu
 
         private void ListCombox(string strMaTruong,ref string strLst,ref string strHocKy)
         {
-            if (strMaTruong != "HBU")
-            {
-                strLst = cboGiangVien.EditValue.ToString();
-                strHocKy = cboHocKy.EditValue.ToString();
-            }
-            else
-            {
-                strLst = cboDonVi.EditValue.ToString();
-                strHocKy = cbocheckHocKy.EditValue.ToString();
-            }
+            strLst = cboDonVi.EditValue.ToString();
+            strHocKy = cbocheckHocKy.EditValue.ToString();
         }
     }
 }

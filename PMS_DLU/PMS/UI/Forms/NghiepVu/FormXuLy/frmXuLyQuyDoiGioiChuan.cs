@@ -272,15 +272,12 @@ namespace PMS.UI.Forms.NghiepVu
                             //klQuyDoi.NgonNguGiangDay = _rowHeSo["NgonNguGiangDay"].ToString();
                             //klQuyDoi.HeSoNgonNgu = decimal.Parse(_rowHeSo["HeSoNgonNgu"].ToString());
                             klQuyDoi.MaKhoaCuaMonHoc = _rowHeSo["MaKhoaLopHocPhan"].ToString();
+                            if (string.IsNullOrEmpty(klQuyDoi.MaKhoaCuaMonHoc)) klQuyDoi.MaKhoaCuaMonHoc = klGiangDay.MaKhoaCuaMonHoc;
                             klQuyDoi.HeSoQuyDoiThucHanhSangLyThuyet = decimal.Parse(_rowHeSo["HeSoQuyDoiThucHanhSangLyThuyet"].ToString());
                             //klQuyDoi.HeSoNgoaiGio = decimal.Parse(_rowHeSo["HeSoNgoaiGio"].ToString());
                             //klQuyDoi.HeSoCoSo = decimal.Parse(_rowHeSo["HeSoCoSo"].ToString());
                             klQuyDoi.HeSoChucDanhChuyenMon = decimal.Parse(_rowHeSo["HeSoChucDanhChuyenMon"].ToString());
-
-                            //if (klQuyDoi.MaGiangVien.Equals("011.210.00003") && klQuyDoi.MaLopHocPhan.Equals("162NH111301")) //<< test 
-                            //{
-                            //    string str = "debug";
-                            //}
+                            
 
                             if (klQuyDoi.LoaiHocPhan.Equals("LT") || "TD".Contains(klQuyDoi.MaKhoaCuaMonHoc)) //Lý thuyết hoặc GDTC
                             {

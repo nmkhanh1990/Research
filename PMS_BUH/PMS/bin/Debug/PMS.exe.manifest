@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Fnz/NSZv2hm87m4triWu3361iRY=</dsig:DigestValue>
+        <dsig:DigestValue>+b9hxAGP4L5mdRYrJQRDrlTpfhE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2311,14 +2311,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PMS.exe" size="13813760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="PMS.exe" size="13814272">
       <assemblyIdentity name="PMS" version="1.1005.1805.1116" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>l01w5w/g6tdJjgM54WXks14pWjs=</dsig:DigestValue>
+        <dsig:DigestValue>UH5rWoGDxT+frCDm6if5aF1ANP0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2330,7 +2330,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>3F+hNUbfsv2PJfKWlDqI+rL4K1c=</dsig:DigestValue>
+        <dsig:DigestValue>//pEnjcsCC4LIFfXLdF9dMQ2h48=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2342,7 +2342,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>pQsJcNlgXbpDzesS7lhJPTOCGnk=</dsig:DigestValue>
+        <dsig:DigestValue>hmL0A6kHF2B9cI9PxkarsQmoiGw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2354,7 +2354,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LvVu9bvg1s93gE17y0wMSW+ruTo=</dsig:DigestValue>
+        <dsig:DigestValue>uTTPf5UQ0XLi1ktX9b0iu+czIVU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2366,7 +2366,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>iEoKM2v+7YbZ/lFZ1V9p33guvRU=</dsig:DigestValue>
+        <dsig:DigestValue>Vcwhh/qHjNp7BARSHS4qjJ6tHlE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -2421,7 +2421,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>MHtG0yOmKKZ2LwWr+l7cMJtG5+M=</dsig:DigestValue>
+      <dsig:DigestValue>+vf/beAAdsM03HVTOSYoYDBMgug=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\delete.png" size="1164">
